@@ -120,14 +120,14 @@ def sendmail(): #Function to send email to any user
     content = inputVoice()
     msg.set_content(content)
     msg["Subject"] = "Test Mail"
-    msg["From"] = "coursesarchived@gmail.com"
-    msg["To"] = "palakkukreja264@gmail.com"
+    msg["From"] = "abc_xyz@gmail.com" #Enter sender's email address
+    msg["To"] = "abc_1234@gmail.com" #Enter receiver's email address
 
     context = ssl.create_default_context()
 
     with smtplib.SMTP("smtp.gmail.com", port=587) as smtp:
         smtp.starttls(context=context)
-        smtp.login(msg["From"], "Archived@Courses123")
+        smtp.login(msg["From"], "ABC@123") #Login into sender's email account using Password
         smtp.send_message(msg)
 
     speak("Email sent successfully!")
@@ -169,7 +169,7 @@ def weather(city): #Function to get weather update using BeautifulSoup Library
 
 
 def song(): #Function to play songs
-    songs_dir = "D:\music"
+    songs_dir = "D:\music" #Enter the path of the folder where songs are stored
     songs = os.listdir(songs_dir)
     os.startfile(os.path.join(songs_dir, songs[0]))
     return
